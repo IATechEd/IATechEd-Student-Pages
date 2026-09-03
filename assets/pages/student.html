@@ -7,21 +7,44 @@
         <meta name="description" content="">
         <link rel="stylesheet" type="text/css" href="documents/style.css">
 
-        <!-- TODO: fill in favicon files -->
+        <!-- TODO: fill in Open Graph / Twitter card metadata -->
+        <!-- Basic meta -->
+        <meta name="description" content="Portfolio site for {{ name }}, an IATechEd student.">
+        <meta name="author" content="{{ name }}">
+        <meta name="robots" content="index, follow">
+        <link rel="canonical" href="{{ pageUrl }}"> <!-- Fill in page URL once the domain has been purchased! -->
+        <meta name="theme-color" content="#4a4b54">
+
+        <!-- Favicons -->
         <link rel="icon" type="image/svg+xml" sizes="any" href="favicon.svg">
         <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
         <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
 
-        <!-- TODO: fill in Open Graph / Twitter card metadata -->
-        <meta property="og:title" content="">
-        <meta property="og:description" content="">
-        <meta property="og:image" content="">
-        <meta name="twitter:card" content="">
-        <meta name="twitter:site" content="">
-        <meta name="twitter:title" content="">
-        <meta name="twitter:description" content="">
-        <meta name="twitter:image" content="">
+        <!-- Open Graph -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ pageUrl }}"> <!-- Fill in page URL once the domain has been purchased! -->
+        <meta property="og:title" content="{{ name }} - IATechEd">
+        <meta property="og:description" content="Portfolio site for {{ name }}, an IATechEd student.">
+        <meta property="og:image" content="{{ ogImageUrl }}">
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ name }} - IATechEd">
+        <meta name="twitter:description" content="Portfolio site for {{ name }}, an IATechED student.">
+        <meta name="twitter:image" content="{{ ogImageUrl }}">
+
+        <!-- Structured data (helps search engines) -->
+        <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "{{ name }}",
+        "description": "{{ aboutMeText }}",
+        "url": "{{ pageUrl }}",
+        "image": "{{ ogImageUrl }}"
+        }
+        </script> <!-- Fill in page URL once the domain has been purchased! -->
     </head>
     <body>
 
@@ -29,7 +52,7 @@
              Intro section: photo, name, grad status, links, about-me blurb
              =================================================== -->
         <div id="intro" class="containerDiv">
-            <img src="https://placehold.co/200x200" style="max-width: 20vw;">
+        <img src="{{ photoURL }}" style="max-width: 20vw;">
             <p id="pHey">Hey, I'm</p>
             <h1>{{ name }}</h1>
 

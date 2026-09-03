@@ -3,7 +3,7 @@
    =========================================================== */
 * {
     --sub-text-color: #222;
-    --url-color: #4a4b54;
+    --url-color: #11131f;
     --url-hover-color: #5d5e68;
 }
 
@@ -102,6 +102,9 @@ a {
    =========================================================== */
 #aboutMe {
     padding: 0 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     #aboutMeContainer {
         display: grid;

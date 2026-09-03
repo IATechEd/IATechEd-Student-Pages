@@ -1,4 +1,5 @@
 {
+    "photoURL": "https://placehold.co/200x200",
     "name": "Luminara",
     "isGrad": false,
     "gradYear": 2027,
@@ -52,22 +53,6 @@
             }
         },
         "Sound6": {
-            "url": "https://github.com/lumilovesyou/Sound6",
-            "subtitle": "A Minecraft soundboard mod",
-            "skills": {
-                "Java": "#0d6eb6",
-                "IntelliJ": "mediumpurple"
-            }
-        },
-        "So2und6": {
-            "url": "https://github.com/lumilovesyou/Sound6",
-            "subtitle": "A Minecraft soundboard mod",
-            "skills": {
-                "Java": "#0d6eb6",
-                "IntelliJ": "mediumpurple"
-            }
-        },
-        "Soun4d6": {
             "url": "https://github.com/lumilovesyou/Sound6",
             "subtitle": "A Minecraft soundboard mod",
             "skills": {

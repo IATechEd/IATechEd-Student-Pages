@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, redirect, render_template, url_for
 from os import path
 import json
 
@@ -19,7 +19,7 @@ def studentPage(student):
                 "./pages/student.html",
                 **jsonFile
             )
-    return "hi"
+    return redirect(url_for("index"))
 
 if __name__ == '__main__':
     app.run(debug=True)
