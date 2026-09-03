@@ -1,3 +1,6 @@
+/* ===========================================================
+   Global variables
+   =========================================================== */
 * {
     --sub-text-color: #222;
     --url-color: #4a4b54;
@@ -12,19 +15,26 @@ hr {
     width: 30vw;
 }
 
+/* Links: use the theme color and lighten slightly on hover */
 a {
-    color: var(--url-colors);
+    color: var(--url-color);
 
     &:hover {
         color: var(--url-hover-color);
     }
 }
 
+/* ===========================================================
+   Layout helpers
+   =========================================================== */
+
+/* Generic centered column container, reused across sections */
 .containerDiv {
     display: flex;
     flex-direction: column;
     align-items: center;
 
+    /* Row of skill pills, wraps and centers */
     .skillsDiv {
         display: flex;
         flex-wrap: wrap;
@@ -34,6 +44,8 @@ a {
     }
 }
 
+/* Individual skill "pill" badge. Background color is set per-instance
+   via the --color custom property (see inline style in HTML). */
 .skill {
     padding: 2px;
     background-color: var(--color);
@@ -46,11 +58,10 @@ a {
     }
 }
 
-/*
-## Intro section
-Includes:
-Photo, name, graduation, links, about me title, introduction
-*/
+/* ===========================================================
+   Intro section
+   Includes: photo, name, graduation, links, about-me title/intro
+   =========================================================== */
 #intro {
     /*background-color: cornsilk;*/
 
@@ -59,7 +70,7 @@ Photo, name, graduation, links, about me title, introduction
     }
 
     #pHey {
-        color: var(--sub-text-color);;
+        color: var(--sub-text-color);
         font-size: 1.1rem;
         margin-bottom: 0.2rem;
     }
@@ -85,6 +96,10 @@ Photo, name, graduation, links, about me title, introduction
     margin-bottom: 0.5rem;
 }
 
+/* ===========================================================
+   About Me section
+   Two-column grid of info blocks (lists or skill pills)
+   =========================================================== */
 #aboutMe {
     padding: 0 10vw;
 
@@ -92,7 +107,7 @@ Photo, name, graduation, links, about me title, introduction
         display: grid;
         grid-template-columns: repeat(2, 1fr);
 
-        div p{
+        div p {
             font-weight: bold;
             margin-bottom: 0.3rem;
         }
@@ -103,6 +118,10 @@ Photo, name, graduation, links, about me title, introduction
     }
 }
 
+/* ===========================================================
+   Projects section
+   Grid of project cards
+   =========================================================== */
 #projectsDiv {
     display: flex;
     flex-wrap: wrap;
@@ -140,6 +159,7 @@ Photo, name, graduation, links, about me title, introduction
             text-decoration: underline;
         }
 
+        /* Row of skill pills shown inside each project card */
         .skillBox {
             padding-top: 6px;
             font-size: 0.7rem;
@@ -152,10 +172,13 @@ Photo, name, graduation, links, about me title, introduction
     }
 }
 
+/* ===========================================================
+   Contact section
+   =========================================================== */
 #contact {
     text-align: center;
     margin-top: 2rem;
-    
+
     h3 {
         margin-top: 0;
     }
@@ -163,7 +186,7 @@ Photo, name, graduation, links, about me title, introduction
     div {
         display: flex;
         flex-direction: column;
-        
+
         p {
             margin: 0;
         }

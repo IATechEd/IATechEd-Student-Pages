@@ -7,13 +7,13 @@
         <meta name="description" content="">
         <link rel="stylesheet" type="text/css" href="documents/style.css">
 
-        <!-- Fill in later -->
+        <!-- TODO: fill in favicon files -->
         <link rel="icon" type="image/svg+xml" sizes="any" href="favicon.svg">
         <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
         <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
 
-        <!-- Fill in later -->
+        <!-- TODO: fill in Open Graph / Twitter card metadata -->
         <meta property="og:title" content="">
         <meta property="og:description" content="">
         <meta property="og:image" content="">
@@ -24,16 +24,25 @@
         <meta name="twitter:image" content="">
     </head>
     <body>
+
+        <!-- ===================================================
+             Intro section: photo, name, grad status, links, about-me blurb
+             =================================================== -->
         <div id="intro" class="containerDiv">
             <img src="https://placehold.co/200x200" style="max-width: 20vw;">
             <p id="pHey">Hey, I'm</p>
             <h1>{{ name }}</h1>
+
+            <!-- Show past-tense or future-tense grad line depending on status -->
             {% if isGrad %}
                 <sup>Graduated {{ gradYear }}</sup>
             {% else %}
                 <sup>Expected Grad {{ gradYear }}</sup>
             {% endif %}
+
             <hr>
+
+            <!-- Social / personal links, separated by " / ", falls back if none provided -->
             <div>
                 {% for name, url in links.items() %}
                     <a href="{{ url }}" target="_blank">{{ name }}</a>{% if not loop.last %} / {% endif %}
@@ -41,63 +50,78 @@
                     <a>No Links</a>
                 {% endfor %}
             </div>
+
             <hr>
             <h2>About Me</h2>
             <p id="pField">{{ aboutMeText }}</p>
         </div>
+
+        <!-- ===================================================
+             About Me section: info grid (lists or skill pills) + projects
+             =================================================== -->
         <div id="aboutMe">
-        <div id="aboutMeContainer">
-            {% for title, content in aboutMeContainers.items() %}
-                <div class="containerDiv">
-                    <p>{{ title }}</p>
-                    {% if content.type == "list" %}
-                        <ul>
-                            {% for item in content.contents %}
-                                <li>{{ item }}</li>
-                            {% else %}
-                                <li>No Items</li>
-                            {% endfor %}
-                        </ul>
-                    {% else %}
-                        <div class="skillsDiv">
-                            {% for name, colour in content.contents.items() %}
-                                <span class="skill" style="--color: {{ colour }};">{{ name }}</span>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                </div>
-            {% else %}
-                <div>
-                    <p>No Items</p>
-                </div>
-            {% endfor %}
-        </div>
+            <div id="aboutMeContainer">
+                {% for title, content in aboutMeContainers.items() %}
+                    <div class="containerDiv">
+                        <p>{{ title }}</p>
+                        {% if content.type == "list" %}
+                            <!-- Plain bullet list (e.g. internships, hobbies) -->
+                            <ul>
+                                {% for item in content.contents %}
+                                    <li>{{ item }}</li>
+                                {% else %}
+                                    <li>No Items</li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <!-- Color-coded skill pills (name -> color) -->
+                            <div class="skillsDiv">
+                                {% for name, colour in content.contents.items() %}
+                                    <span class="skill" style="--color: {{ colour }};">{{ name }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% else %}
+                    <div>
+                        <p>No Items</p>
+                    </div>
+                {% endfor %}
+            </div>
+
             <br>
+
+            <!-- Projects grid -->
             <div class="containerDiv">
                 <p>{{ aboutProjectsText }}</p>
                 <div id="projectsDiv">
                     {% for name, content in projects.items() %}
                         <div class="projectBox">
-                        <div>
-                            <a href="{{ content.url }}" target="_blank"><h3>{{ name }}</h3></a>
-                            <p>{{ content.subtitle }}</p>
-                        </div>
-                        <div>
-                            <sub>Skills:</sub>
-                            <div class="skillBox">
-                                {% for name, colour in content.skills.items() %}
-                                    <span class="skill" style="--color: {{ colour }};">{{ name }}</span>
-                                {% endfor %}
+                            <div>
+                                <a href="{{ content.url }}" target="_blank"><h3>{{ name }}</h3></a>
+                                <p>{{ content.subtitle }}</p>
+                            </div>
+                            <div>
+                                <sub>Skills:</sub>
+                                <div class="skillBox">
+                                    {% for name, colour in content.skills.items() %}
+                                        <span class="skill" style="--color: {{ colour }};">{{ name }}</span>
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
-                    </div>
                     {% endfor %}
                 </div>
             </div>
         </div>
+
         <br>
         <hr>
         <br>
+
+        <!-- ===================================================
+             Contact section
+             =================================================== -->
         <div id="contact">
             <h3>{{ contactMeText }}</h3>
             <div>
@@ -106,22 +130,6 @@
                 {% endfor %}
             </div>
         </div>
-
-
-        <!-- To have:
-            [x] Name
-            [x] Photo
-            [x] Links
-            [x] Grad year
-            [x] Field
-            [x] Internships
-            [x] Certificates
-            [x] Skills (languages/tools)
-            [x] Hobbies/Interests
-            [x] Projects
-            [x] Contact me
-        -->
-
         <script src="./documents/index.js"></script>
     </body>
-</html
+</html>
