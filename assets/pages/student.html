@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ name }} - IATechEd</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="">
+        <link rel="stylesheet" type="text/css" href="documents/style.css">
+
+        <!-- Fill in later -->
+        <link rel="icon" type="image/svg+xml" sizes="any" href="favicon.svg">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
+
+        <!-- Fill in later -->
+        <meta property="og:title" content="">
+        <meta property="og:description" content="">
+        <meta property="og:image" content="">
+        <meta name="twitter:card" content="">
+        <meta name="twitter:site" content="">
+        <meta name="twitter:title" content="">
+        <meta name="twitter:description" content="">
+        <meta name="twitter:image" content="">
+    </head>
+    <body>
+        <div id="intro" class="containerDiv">
+            <img src="https://placehold.co/200x200" style="max-width: 20vw;">
+            <p id="pHey">Hey, I'm</p>
+            <h1>{{ name }}</h1>
+            {% if isGrad %}
+                <sup>Graduated {{ gradYear }}</sup>
+            {% else %}
+                <sup>Expected Grad {{ gradYear }}</sup>
+            {% endif %}
+            <hr>
+            <div>
+                {% for name, url in links.items() %}
+                    <a href="{{ url }}" target="_blank">{{ name }}</a>{% if not loop.last %} / {% endif %}
+                {% else %}
+                    <a>No Links</a>
+                {% endfor %}
+            </div>
+            <hr>
+            <h2>About Me</h2>
+            <p id="pField">{{ aboutMeText }}</p>
+        </div>
+        <div id="aboutMe">
+        <div id="aboutMeContainer">
+            {% for title, content in aboutMeContainers.items() %}
+                <div class="containerDiv">
+                    <p>{{ title }}</p>
+                    {% if content.type == "list" %}
+                        <ul>
+                            {% for item in content.contents %}
+                                <li>{{ item }}</li>
+                            {% else %}
+                                <li>No Items</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <div class="skillsDiv">
+                            {% for name, colour in content.contents.items() %}
+                                <span class="skill" style="--color: {{ colour }};">{{ name }}</span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% else %}
+                <div>
+                    <p>No Items</p>
+                </div>
+            {% endfor %}
+        </div>
+            <br>
+            <div class="containerDiv">
+                <p>{{ aboutProjectsText }}</p>
+                <div id="projectsDiv">
+                    {% for name, content in projects.items() %}
+                        <div class="projectBox">
+                        <div>
+                            <a href="{{ content.url }}" target="_blank"><h3>{{ name }}</h3></a>
+                            <p>{{ content.subtitle }}</p>
+                        </div>
+                        <div>
+                            <sub>Skills:</sub>
+                            <div class="skillBox">
+                                {% for name, colour in content.skills.items() %}
+                                    <span class="skill" style="--color: {{ colour }};">{{ name }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div id="contact">
+            <h3>{{ contactMeText }}</h3>
+            <div>
+                {% for text, url in contact.items() %}
+                    <a href="{{ url }}" target="_blank">{{ text }}</a>
+                {% endfor %}
+            </div>
+        </div>
+
+
+        <!-- To have:
+            [x] Name
+            [x] Photo
+            [x] Links
+            [x] Grad year
+            [x] Field
+            [x] Internships
+            [x] Certificates
+            [x] Skills (languages/tools)
+            [x] Hobbies/Interests
+            [x] Projects
+            [x] Contact me
+        -->
+
+        <script src="./documents/index.js"></script>
+    </body>
+</html
