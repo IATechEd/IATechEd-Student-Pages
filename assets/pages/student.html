@@ -62,16 +62,15 @@
                 <sup>Expected Grad {{ gradYear }}</sup>
             {% endif %}
 
-            <hr>
-
-            <!-- Social / personal links, separated by " / ", falls back if none provided -->
-            <div>
-                {% for name, url in links.items() %}
-                    <a href="{{ url }}" target="_blank">{{ name }}</a>{% if not loop.last %} / {% endif %}
-                {% else %}
-                    <a>No Links</a>
-                {% endfor %}
-            </div>
+            <!-- Social / personal links, separated by " / "; whole row hidden if none provided -->
+            {% if links %}
+                <hr>
+                <div>
+                    {% for name, url in links.items() %}
+                        <a href="{{ url }}" target="_blank">{{ name }}</a>{% if not loop.last %} / {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
 
             <hr>
             <h2>About Me</h2>
@@ -81,76 +80,82 @@
         <!-- ===================================================
              About Me section: info grid (lists or skill pills) + projects
              =================================================== -->
+        {% if aboutMeContainers or projects %}
         <div id="aboutMe">
-            <div id="aboutMeContainer">
-                {% for title, content in aboutMeContainers.items() %}
-                    <div class="containerDiv">
-                        <p>{{ title }}</p>
-                        {% if content.type == "list" %}
-                            <!-- Plain bullet list (e.g. internships, hobbies) -->
-                            <ul>
-                                {% for item in content.contents %}
-                                    <li>{{ item }}</li>
+            {% if aboutMeContainers %}
+                <div id="aboutMeContainer">
+                    {% for title, content in aboutMeContainers.items() %}
+                        {% if content.contents %}
+                            <div class="containerDiv">
+                                <p>{{ title }}</p>
+                                {% if content.type == "list" %}
+                                    <!-- Plain bullet list (e.g. internships, hobbies) -->
+                                    <ul>
+                                        {% for item in content.contents %}
+                                            <li>{{ item }}</li>
+                                        {% endfor %}
+                                    </ul>
                                 {% else %}
-                                    <li>No Items</li>
-                                {% endfor %}
-                            </ul>
-                        {% else %}
-                            <!-- Color-coded skill pills (name -> color) -->
-                            <div class="skillsDiv">
-                                {% for name, colour in content.contents.items() %}
-                                    <span class="skill" style="--color: {{ colour }};">{{ name }}</span>
-                                {% endfor %}
+                                    <!-- Color-coded skill pills (name -> color) -->
+                                    <div class="skillsDiv">
+                                        {% for name, colour in content.contents.items() %}
+                                            <span class="skill" style="--color: {{ colour }};">{{ name }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
                             </div>
                         {% endif %}
-                    </div>
-                {% else %}
-                    <div>
-                        <p>No Items</p>
-                    </div>
-                {% endfor %}
-            </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
 
-            <br>
+            {% if aboutMeContainers and projects %}
+                <br>
+            {% endif %}
 
-            <!-- Projects grid -->
-            <div class="containerDiv">
-                <p>{{ aboutProjectsText }}</p>
-                <div id="projectsDiv">
-                    {% for name, content in projects.items() %}
-                        <div class="projectBox">
-                            <div>
-                                <a href="{{ content.url }}" target="_blank"><h3>{{ name }}</h3></a>
-                                <p>{{ content.subtitle }}</p>
-                            </div>
-                            <div>
-                                <sub>Skills:</sub>
-                                <div class="skillBox">
-                                    {% for name, colour in content.skills.items() %}
-                                        <span class="skill" style="--color: {{ colour }};">{{ name }}</span>
-                                    {% endfor %}
+            <!-- Projects grid; hidden entirely if there are no projects -->
+            {% if projects %}
+                <div class="containerDiv">
+                    <p>{{ aboutProjectsText }}</p>
+                    <div id="projectsDiv">
+                        {% for name, content in projects.items() %}
+                            <div class="projectBox">
+                                <div>
+                                    <a href="{{ content.url }}" target="_blank"><h3>{{ name }}</h3></a>
+                                    <p>{{ content.subtitle }}</p>
+                                </div>
+                                <div>
+                                    <sub>Skills:</sub>
+                                    <div class="skillBox">
+                                        {% for name, colour in content.skills.items() %}
+                                            <span class="skill" style="--color: {{ colour }};">{{ name }}</span>
+                                        {% endfor %}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        {% if contact %}
+            <br>
+            <hr>
+            <br>
+
+            <!-- ===================================================
+                 Contact section
+                 =================================================== -->
+            <div id="contact">
+                <h3>{{ contactMeText }}</h3>
+                <div>
+                    {% for text, url in contact.items() %}
+                        <a href="{{ url }}" target="_blank">{{ text }}</a>
                     {% endfor %}
                 </div>
             </div>
-        </div>
-
-        <br>
-        <hr>
-        <br>
-
-        <!-- ===================================================
-             Contact section
-             =================================================== -->
-        <div id="contact">
-            <h3>{{ contactMeText }}</h3>
-            <div>
-                {% for text, url in contact.items() %}
-                    <a href="{{ url }}" target="_blank">{{ text }}</a>
-                {% endfor %}
-            </div>
-        </div>
+        {% endif %}
     </body>
 </html>
