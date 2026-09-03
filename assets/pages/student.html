@@ -5,25 +5,24 @@
         <title>{{ name }} - IATechEd</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="description" content="">
-        <link rel="stylesheet" type="text/css" href="documents/style.css">
+        <link rel="stylesheet" type="text/css" href="static/documents/student.css">
 
         <!-- TODO: fill in Open Graph / Twitter card metadata -->
         <!-- Basic meta -->
         <meta name="description" content="Portfolio site for {{ name }}, an IATechEd student.">
         <meta name="author" content="{{ name }}">
         <meta name="robots" content="index, follow">
-        <link rel="canonical" href="{{ pageUrl }}"> <!-- Fill in page URL once the domain has been purchased! -->
+        <link rel="canonical" href="{{ pageUrl }}">
         <meta name="theme-color" content="#4a4b54">
 
         <!-- Favicons -->
-        <link rel="icon" type="image/svg+xml" sizes="any" href="favicon.svg">
-        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-        <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
+        <link rel="icon" type="image/svg+xml" sizes="any" href="static/images/favicon.svg">
+        <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicon-16.png">
 
         <!-- Open Graph -->
         <meta property="og:type" content="website">
-        <meta property="og:url" content="{{ pageUrl }}"> <!-- Fill in page URL once the domain has been purchased! -->
+        <meta property="og:url" content="{{ pageUrl }}">
         <meta property="og:title" content="{{ name }} - IATechEd">
         <meta property="og:description" content="Portfolio site for {{ name }}, an IATechEd student.">
         <meta property="og:image" content="{{ ogImageUrl }}">
@@ -44,7 +43,7 @@
         "url": "{{ pageUrl }}",
         "image": "{{ ogImageUrl }}"
         }
-        </script> <!-- Fill in page URL once the domain has been purchased! -->
+        </script>
     </head>
     <body>
 
@@ -153,6 +152,5 @@
                 {% endfor %}
             </div>
         </div>
-        <script src="./documents/index.js"></script>
     </body>
 </html>
