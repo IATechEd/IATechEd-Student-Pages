@@ -3,3 +3,5 @@ setTimeout(() => {
   location.reload();
 }, 1000);
 */
+
+console.log(window.innerWidth, window.innerHeight);
