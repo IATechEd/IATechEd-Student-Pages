@@ -1,0 +1,65 @@
+{
+  "photoURL": "https://placehold.co/200x200",
+  "name": "Luminara",
+  "isGrad": false,
+  "gradYear": 2027,
+  "links": {
+    "LinkedIn": "https://www.linkedin.com/in/lchiodo",
+    "GitHub": "https://github.com/lumilovesyou",
+    "Website": "http://lumiverse.dev"
+  },
+  "aboutMeText": "My ideal field is programming. In my working towards this I've collected these:",
+  "aboutMeContainers": {
+    "Internships": {
+      "type": "list",
+      "contents": ["None, yet!"]
+    },
+    "Certificates": {
+      "type": "list",
+      "contents": ["None, yet!"]
+    },
+    "Skills": {
+      "type": "skills",
+      "contents": {
+        "Python": "yellow",
+        "Rust": "orange",
+        "VSCode": "#24aaf3",
+        "Java": "#0d6eb6"
+      }
+    },
+    "Hobbies": {
+      "type": "list",
+      "contents": [
+        "Programming",
+        "Learning about computers",
+        "Running a home server"
+      ]
+    }
+  },
+  "aboutProjectsText": "I also have some projects to prove my skills. Here's my favorites:",
+  "projects": {
+    "Lumiverse": {
+      "url": "https://lumiverse.dev",
+      "subtitle": "My personal website",
+      "skills": {
+        "HTML": "orange",
+        "JavaScript": "yellow",
+        "CSS": "lightskyblue",
+        "VSCode": "#24aaf3"
+      }
+    },
+    "Sound6": {
+      "url": "https://github.com/lumilovesyou/Sound6",
+      "subtitle": "A Minecraft soundboard mod",
+      "skills": {
+        "Java": "#0d6eb6",
+        "IntelliJ": "mediumpurple"
+      }
+    }
+  },
+  "contactMeText": "Contact Me",
+  "contact": {
+    "Email: felis.araneae@gmail.com": "mailto:felis.araneae@gmail.com",
+    "Discord: lumilovesyou": "https://canary.discord.com/users/1267660084037554186"
+  }
+}

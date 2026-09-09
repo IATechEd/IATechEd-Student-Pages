@@ -1,78 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" />
         <title>{{ name }} - IATechEd</title>
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <meta name="description" content="">
-        <link rel="stylesheet" type="text/css" href="static/documents/student.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="description" content="" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="static/documents/student.css"
+        />
 
         <!-- TODO: fill in Open Graph / Twitter card metadata -->
         <!-- Basic meta -->
-        <meta name="description" content="Portfolio site for {{ name }}, an IATechEd student.">
-        <meta name="author" content="{{ name }}">
-        <meta name="robots" content="index, follow">
-        <link rel="canonical" href="{{ pageUrl }}">
-        <meta name="theme-color" content="#4a4b54">
+        <meta
+            name="description"
+            content="Portfolio site for {{ name }}, an IATechEd student."
+        />
+        <meta name="author" content="{{ name }}" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="{{ pageUrl }}" />
+        <meta name="theme-color" content="#4a4b54" />
 
         <!-- Favicons -->
-        <link rel="icon" type="image/svg+xml" sizes="any" href="static/images/favicon.svg">
-        <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicon-16.png">
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            sizes="any"
+            href="static/images/favicon.svg"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="static/images/favicon-32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="static/images/favicon-16.png"
+        />
 
         <!-- Open Graph -->
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="{{ pageUrl }}">
-        <meta property="og:title" content="{{ name }} - IATechEd">
-        <meta property="og:description" content="Portfolio site for {{ name }}, an IATechEd student.">
-        <meta property="og:image" content="{{ ogImageUrl }}">
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{ pageUrl }}" />
+        <meta property="og:title" content="{{ name }} - IATechEd" />
+        <meta
+            property="og:description"
+            content="Portfolio site for {{ name }}, an IATechEd student."
+        />
+        <meta property="og:image" content="{{ ogImageUrl }}" />
 
         <!-- Twitter Card -->
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="{{ name }} - IATechEd">
-        <meta name="twitter:description" content="Portfolio site for {{ name }}, an IATechED student.">
-        <meta name="twitter:image" content="{{ ogImageUrl }}">
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="{{ name }} - IATechEd" />
+        <meta
+            name="twitter:description"
+            content="Portfolio site for {{ name }}, an IATechED student."
+        />
+        <meta name="twitter:image" content="{{ ogImageUrl }}" />
 
         <!-- Structured data (helps search engines) -->
         <script type="application/ld+json">
-        {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "{{ name }}",
-        "description": "{{ aboutMeText }}",
-        "url": "{{ pageUrl }}",
-        "image": "{{ ogImageUrl }}"
-        }
+            {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "{{ name }}",
+                "description": "{{ aboutMeText }}",
+                "url": "{{ pageUrl }}",
+                "image": "{{ ogImageUrl }}"
+            }
         </script>
     </head>
     <body>
-
         <!-- ===================================================
              Intro section: photo, name, grad status, links, about-me blurb
              =================================================== -->
         <div id="intro" class="containerDiv">
-        <img src="{{ photoURL }}" style="max-width: 20vw;">
+            <img src="{{ photoURL }}" style="max-width: 20vw" />
             <p id="pHey">Hey, I'm</p>
             <h1>{{ name }}</h1>
 
             <!-- Show past-tense or future-tense grad line depending on status -->
             {% if isGrad %}
-                <sup>Graduated {{ gradYear }}</sup>
+            <sup>Graduated {{ gradYear }}</sup>
             {% else %}
-                <sup>Expected Grad {{ gradYear }}</sup>
+            <sup>Expected Grad {{ gradYear }}</sup>
             {% endif %}
 
             <!-- Social / personal links, separated by " / "; whole row hidden if none provided -->
             {% if links %}
-                <hr>
-                <div>
-                    {% for name, url in links.items() %}
-                        <a href="{{ url }}" target="_blank">{{ name }}</a>{% if not loop.last %} / {% endif %}
-                    {% endfor %}
-                </div>
+            <hr />
+            <div>
+                {% for name, url in links.items() %}
+                <a href="{{ url }}" target="_blank">{{ name }}</a>{% if not
+                loop.last %} / {% endif %} {% endfor %}
+            </div>
             {% endif %}
 
-            <hr>
+            <hr />
             <h2>About Me</h2>
             <p id="pField">{{ aboutMeText }}</p>
         </div>
@@ -83,79 +110,82 @@
         {% if aboutMeContainers or projects %}
         <div id="aboutMe">
             {% if aboutMeContainers %}
-                <div id="aboutMeContainer">
-                    {% for title, content in aboutMeContainers.items() %}
-                        {% if content.contents %}
-                            <div class="containerDiv">
-                                <p>{{ title }}</p>
-                                {% if content.type == "list" %}
-                                    <!-- Plain bullet list (e.g. internships, hobbies) -->
-                                    <ul>
-                                        {% for item in content.contents %}
-                                            <li>{{ item }}</li>
-                                        {% endfor %}
-                                    </ul>
-                                {% else %}
-                                    <!-- Color-coded skill pills (name -> color) -->
-                                    <div class="skillsDiv">
-                                        {% for name, colour in content.contents.items() %}
-                                            <span class="skill" style="--color: {{ colour }};">{{ name }}</span>
-                                        {% endfor %}
-                                    </div>
-                                {% endif %}
-                            </div>
-                        {% endif %}
-                    {% endfor %}
+            <div id="aboutMeContainer">
+                {% for title, content in aboutMeContainers.items() %} {% if
+                content.contents %}
+                <div class="containerDiv">
+                    <p>{{ title }}</p>
+                    {% if content.type == "list" %}
+                    <!-- Plain bullet list (e.g. internships, hobbies) -->
+                    <ul>
+                        {% for item in content.contents %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <!-- Color-coded skill pills (name -> color) -->
+                    <div class="skillsDiv">
+                        {% for name, colour in content.contents.items() %}
+                        <span class="skill" style="--color: {{ colour }};"
+                            >{{ name }}</span
+                        >
+                        {% endfor %}
+                    </div>
+                    {% endif %}
                 </div>
-            {% endif %}
-
-            {% if aboutMeContainers and projects %}
-                <br>
+                {% endif %} {% endfor %}
+            </div>
+            {% endif %} {% if aboutMeContainers and projects %}
+            <br />
             {% endif %}
 
             <!-- Projects grid; hidden entirely if there are no projects -->
             {% if projects %}
-                <div class="containerDiv">
-                    <p>{{ aboutProjectsText }}</p>
-                    <div id="projectsDiv">
-                        {% for name, content in projects.items() %}
-                            <div class="projectBox">
-                                <div>
-                                    <a href="{{ content.url }}" target="_blank"><h3>{{ name }}</h3></a>
-                                    <p>{{ content.subtitle }}</p>
-                                </div>
-                                <div>
-                                    <sub>Skills:</sub>
-                                    <div class="skillBox">
-                                        {% for name, colour in content.skills.items() %}
-                                            <span class="skill" style="--color: {{ colour }};">{{ name }}</span>
-                                        {% endfor %}
-                                    </div>
-                                </div>
+            <div class="containerDiv">
+                <p>{{ aboutProjectsText }}</p>
+                <div id="projectsDiv">
+                    {% for name, content in projects.items() %}
+                    <div class="projectBox">
+                        <div>
+                            <a href="{{ content.url }}" target="_blank"
+                                ><h3>{{ name }}</h3></a
+                            >
+                            <p>{{ content.subtitle }}</p>
+                        </div>
+                        <div>
+                            <sub>Skills:</sub>
+                            <div class="skillBox">
+                                {% for name, colour in content.skills.items() %}
+                                <span
+                                    class="skill"
+                                    style="--color: {{ colour }};"
+                                    >{{ name }}</span
+                                >
+                                {% endfor %}
                             </div>
-                        {% endfor %}
+                        </div>
                     </div>
-                </div>
-            {% endif %}
-        </div>
-        {% endif %}
-
-        {% if contact %}
-            <br>
-            <hr>
-            <br>
-
-            <!-- ===================================================
-                 Contact section
-                 =================================================== -->
-            <div id="contact">
-                <h3>{{ contactMeText }}</h3>
-                <div>
-                    {% for text, url in contact.items() %}
-                        <a href="{{ url }}" target="_blank">{{ text }}</a>
                     {% endfor %}
                 </div>
             </div>
+            {% endif %}
+        </div>
+        {% endif %} {% if contact %}
+        <br />
+        <hr />
+        <br />
+
+        <!-- ===================================================
+             Contact section
+             =================================================== -->
+        <div id="contact">
+            <h3>{{ contactMeText }}</h3>
+            <div>
+                {% for text, url in contact.items() %}
+                <a href="{{ url }}" target="_blank">{{ text }}</a>
+                {% endfor %}
+            </div>
+        </div>
         {% endif %}
     </body>
 </html>

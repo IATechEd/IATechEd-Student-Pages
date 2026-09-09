@@ -1,57 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" />
         <title>IATechEd Students</title>
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="static/documents/index.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="static/documents/index.css"
+        />
 
         <!-- Basic meta -->
-        <meta name="description" content="Browse student portfolios from IATechEd.">
-        <meta name="robots" content="index, follow">
-        <link rel="canonical" href="{{ pageUrl }}"> <!-- Fill in page URL once the domain has been purchased! -->
-        <meta name="theme-color" content="#4a4b54">
+        <meta
+            name="description"
+            content="Browse student portfolios from IATechEd."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="{{ pageUrl }}" />
+        <!-- Fill in page URL once the domain has been purchased! -->
+        <meta name="theme-color" content="#4a4b54" />
 
         <!-- Favicons -->
-        <link rel="icon" type="image/svg+xml" sizes="any" href="static/images/favicon.svg">
-        <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicon-16x16.png">
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            sizes="any"
+            href="static/images/favicon.svg"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="static/images/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="static/images/favicon-16x16.png"
+        />
 
         <!-- Open Graph -->
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="{{ pageUrl }}"> <!-- Fill in page URL once the domain has been purchased! -->
-        <meta property="og:title" content="IATechEd Students">
-        <meta property="og:description" content="Browse student portfolios from IATechEd.">
-        <meta property="og:image" content="{{ ogImageUrl }}">
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{ pageUrl }}" />
+        <!-- Fill in page URL once the domain has been purchased! -->
+        <meta property="og:title" content="IATechEd Students" />
+        <meta
+            property="og:description"
+            content="Browse student portfolios from IATechEd."
+        />
+        <meta property="og:image" content="{{ ogImageUrl }}" />
 
         <!-- Twitter Card -->
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="IATechEd Students">
-        <meta name="twitter:description" content="Browse student portfolios from IATechEd.">
-        <meta name="twitter:image" content="{{ ogImageUrl }}">
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="IATechEd Students" />
+        <meta
+            name="twitter:description"
+            content="Browse student portfolios from IATechEd."
+        />
+        <meta name="twitter:image" content="{{ ogImageUrl }}" />
 
         <!-- Structured data: this page lists multiple people, so each student
              is represented as an ItemList of Person entries -->
         <script type="application/ld+json">
-        {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "itemListElement": [
-            {% for student in students %}
             {
-                "@type": "Person",
-                "position": {{ loop.index }},
-                "name": "{{ student.name }}",
-                "url": "{{ student.pageUrl }}",
-                "image": "{{ student.photoUrl }}"
-            }{% if not loop.last %},{% endif %}
-            {% endfor %}
-        ]
-        }
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": [
+                {% for student in students %}
+                {
+                    "@type": "Person",
+                    "position": {{ loop.index }},
+                    "name": "{{ student.name }}",
+                    "url": "{{ student.pageUrl }}",
+                    "image": "{{ student.photoUrl }}"
+                }{% if not loop.last %},{% endif %}
+                {% endfor %}
+            ]
+            }
         </script>
     </head>
     <body>
-
         <!-- ===================================================
              Page header
              =================================================== -->
@@ -60,7 +89,7 @@
             <p id="pField">Meet the students and browse their portfolios.</p>
         </div>
 
-        <hr>
+        <hr />
 
         <!-- ===================================================
              Student directory: one card per student, each card
@@ -68,15 +97,15 @@
              =================================================== -->
         <div id="studentsDiv">
             {% for student in students %}
-                <a class="studentCard" href="{{ pageUrl }}{{ student.pageUrl }}">
-                    <img src="{{ student.photoUrl }}" alt="{{ student.name }}">
-                    <h3>{{ student.name }}</h3>
-                    {% if student.field %}
-                        <p>{{ student.field }}</p>
-                    {% endif %}
-                </a>
+            <a class="studentCard" href="{{ pageUrl }}{{ student.pageUrl }}">
+                <img src="{{ student.photoUrl }}" alt="{{ student.name }}" />
+                <h3>{{ student.name }}</h3>
+                {% if student.field %}
+                <p>{{ student.field }}</p>
+                {% endif %}
+            </a>
             {% else %}
-                <p>No students to show yet.</p>
+            <p>No students to show yet.</p>
             {% endfor %}
         </div>
     </body>

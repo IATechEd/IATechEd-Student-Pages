@@ -115,7 +115,8 @@ a {
             margin-bottom: 0.3rem;
         }
 
-        ul, div {
+        ul,
+        div {
             margin-top: 0;
         }
     }
@@ -180,7 +181,7 @@ a {
    =========================================================== */
 #contact {
     text-align: center;
-    margin-top: 2rem;
+    margin: 2rem 0 1rem 0;
 
     h3 {
         margin-top: 0;
@@ -193,5 +194,89 @@ a {
         p {
             margin: 0;
         }
+    }
+}
+
+/* ===========================================================
+   Mobile layout
+   =========================================================== */
+@media (max-width: 600px) {
+    body {
+        padding: 24px 16px 32px;
+        margin: 0;
+        overflow-wrap: anywhere;
+    }
+
+    hr {
+        width: min(75vw, 280px);
+    }
+
+    #intro {
+        text-align: center;
+
+        img {
+            width: min(55vw, 220px);
+            max-width: none !important;
+            height: auto;
+        }
+
+        h1 {
+            max-width: 100%;
+            margin: -4px 0 0;
+            font-size: clamp(2rem, 11vw, 3rem);
+            line-height: 1.05;
+        }
+
+        sup {
+            margin-bottom: 1.25rem;
+        }
+
+        h2 {
+            margin-top: 1.5rem;
+        }
+
+        #pField {
+            max-width: 36rem;
+        }
+    }
+
+    #aboutMe {
+        padding: 0;
+
+        #aboutMeContainer {
+            width: 100%;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+        }
+    }
+
+    .skill {
+        padding: 3px 5px;
+    }
+
+    #projectsDiv {
+        width: 100%;
+        max-width: none;
+        gap: 0.75rem;
+        padding: 0;
+
+        .projectBox {
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 360px;
+            min-height: 150px;
+            aspect-ratio: auto;
+        }
+    }
+
+    #contact {
+        margin: 1rem 0 0.5rem 0;
+    }
+}
+
+/* Hover scaling can obscure nearby content on touch-only devices. */
+@media (hover: none) {
+    .skill:hover {
+        scale: 1;
     }
 }

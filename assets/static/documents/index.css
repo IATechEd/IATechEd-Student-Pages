@@ -17,7 +17,9 @@ hr {
 
 /* Links: use the theme color and lighten slightly on hover */
 a {
-    color: var(--url-color); /* fixed typo: was var(--url-colors), which doesn't exist */
+    color: var(
+        --url-color
+    ); /* fixed typo: was var(--url-colors), which doesn't exist */
 
     &:hover {
         color: var(--url-hover-color);
@@ -112,7 +114,8 @@ a {
             margin-bottom: 0.3rem;
         }
 
-        ul, div {
+        ul,
+        div {
             margin-top: 0;
         }
     }
