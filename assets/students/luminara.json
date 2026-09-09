@@ -1,5 +1,5 @@
 {
-  "photoURL": "https://placehold.co/200x200",
+  "photoUrl": "https://placehold.co/200x200",
   "name": "Luminara",
   "isGrad": false,
   "gradYear": 2027,
@@ -36,8 +36,8 @@
       ]
     }
   },
-  "aboutProjectsText": "I also have some projects to prove my skills. Here's my favorites:",
-  "projects": {
+  "projectsText": "I also have some projects to prove my skills. Here's my favorites:",
+  "projectsContainers": {
     "Lumiverse": {
       "url": "https://lumiverse.dev",
       "subtitle": "My personal website",

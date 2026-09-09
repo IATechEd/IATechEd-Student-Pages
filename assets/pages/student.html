@@ -82,7 +82,7 @@
              Intro section: photo, name, grad status, links, about-me blurb
              =================================================== -->
             <div id="intro" class="containerDiv">
-                <img src="{{ photoURL }}" />
+                <img src="{{ photoUrl }}" />
                 <p id="pHey">Hey, I'm</p>
                 <h1>{{ name }}</h1>
 
@@ -111,7 +111,7 @@
             <!-- ===================================================
              About Me section: info grid (lists or skill pills) + projects
              =================================================== -->
-            {% if aboutMeContainers or projects %}
+            {% if aboutMeContainers or projectsContainers %}
             <div id="aboutMe">
                 {% if aboutMeContainers %}
                 <div id="aboutMeContainer">
@@ -139,16 +139,16 @@
                     </div>
                     {% endif %} {% endfor %}
                 </div>
-                {% endif %} {% if aboutMeContainers and projects %}
+                {% endif %} {% if aboutMeContainers and projectsContainers %}
                 <br />
                 {% endif %}
 
                 <!-- Projects grid; hidden entirely if there are no projects -->
-                {% if projects %}
+                {% if projectsContainers %}
                 <div class="containerDiv">
-                    <p>{{ aboutProjectsText }}</p>
+                    <p>{{ projectsText }}</p>
                     <div id="projectsDiv">
-                        {% for name, content in projects.items() %}
+                        {% for name, content in projectsContainers.items() %}
                         <div class="projectBox">
                             <div>
                                 <a href="{{ content.url }}" target="_blank"

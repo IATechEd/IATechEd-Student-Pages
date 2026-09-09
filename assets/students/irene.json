@@ -1,5 +1,5 @@
 {
-  "photoURL": "/static/images/students/irene.jpg",
+  "photoUrl": "/static/images/students/irene.jpg",
   "name": "Irene",
   "isGrad": false,
   "gradYear": 2027,
@@ -46,8 +46,8 @@
       ]
     }
   },
-  "aboutProjectsText": "A Couple Projects I'm working on:",
-  "projects": {
+  "projectsText": "A Couple Projects I'm working on:",
+  "projectsContainers": {
     "Dev Site": {
       "url": "https://github.com/Jossey28/dev-site",
       "subtitle": "My Personal Website",
