@@ -1,0 +1,74 @@
+{
+  "photoURL": "https://placehold.co/200x200",
+  "name": "Irene",
+  "isGrad": false,
+  "gradYear": 2027,
+  "links": {
+    "LinkedIn": "https://www.linkedin.com/in/irene-la",
+    "GitHub": "https://github.com/Jossey28",
+    "Website": "https://dev-site.homecamp.biz"
+  },
+  "aboutMeText": "I like lots of things, here are a couple: ",
+  "aboutMeContainers": {
+    "Internships": {
+      "type": "list",
+      "contents": [
+        "Principal Financial Group Cyber Defense Operations Intern (Jun 2026 - Present)",
+        "DMPS Building Tech Support Apprentice (Nov 2025 - Present)",
+        "Sterling Computer Support (Jun 2025 - Aug 2025)",
+        "DMPS Information Technology Intern (May 2024 - Aug 2024)"
+      ]
+    },
+    "Certificates": {
+      "type": "list",
+      "contents": [
+        "HTB Certified Bug Bounty Hunter - August 2025",
+        "TestOut Hyrbid Server Pro - May 2024",
+        "TestOut Routing and Switching Pro - March 2024",
+        "TestOut Linux Professional - March 2024",
+        "TestOut Network Professional - Feb 2024",
+        "TestOut Security Professional - Jan 2024"
+      ]
+    },
+    "Skills": {
+      "type": "skills",
+      "contents": {
+        "Rust": "orange",
+        "Python": "yellow"
+      }
+    },
+    "Hobbies": {
+      "type": "list",
+      "contents": [
+        "Working on IATechED",
+        "Rust <3",
+        "Proxmox w/ Local Services"
+      ]
+    }
+  },
+  "aboutProjectsText": "A Couple Projects I'm working on:",
+  "projects": {
+    "Dev Site": {
+      "url": "https://github.com/Jossey28/dev-site",
+      "subtitle": "My Personal Website",
+      "skills": {
+        "Rust": "orange",
+        "HTML": "orange",
+        "JavaScript": "yellow",
+        "CSS": "lightskyblue"
+      }
+    },
+    "Yare": {
+      "url": "https://github.com/Jossey28/yare",
+      "subtitle": "Yet Another Rust Emulator - Chip8",
+      "skills": {
+        "Rust": "orange",
+        "Reading": "DarkCyan"
+      }
+    }
+  },
+  "contactMeText": "Want to reach out?",
+  "contact": {
+    "Email: jossey@homecamp.biz": "mailto:jossey.araneae@gmail.com"
+  }
+}
