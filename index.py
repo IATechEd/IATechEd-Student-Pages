@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 from typing import Any
+from urllib.parse import urljoin
 
 from flask import Flask, redirect, render_template, request, url_for
 
@@ -29,7 +30,7 @@ def load_student_summaries() -> list[dict[str, str]]:
         summaries.append(
             {
                 "name": student["name"],
-                "pageUrl": file_path.stem,
+                "slug": file_path.stem,
                 "photoUrl": student["photoUrl"],
             }
         )
@@ -37,15 +38,37 @@ def load_student_summaries() -> list[dict[str, str]]:
     return summaries
 
 
+def make_url_absolute(url: str) -> str:
+    return urljoin(request.url_root, url)
+
+
 students = load_student_summaries()
 
 
 @app.route("/")
 def index():
+    student_metadata = [
+        {
+            **student,
+            "pageUrl": url_for(
+                "student_page",
+                student=student["slug"],
+                _external=True,
+            ),
+            "photoUrl": make_url_absolute(student["photoUrl"]),
+        }
+        for student in students
+    ]
+
     return render_template(
-        "./pages/index.html",
-        students=students,
+        "pages/index.html",
+        students=student_metadata,
         pageUrl=request.base_url,
+        ogImageUrl=url_for(
+            "static",
+            filename="images/favicon.svg",
+            _external=True,
+        ),
     )
 
 
@@ -61,6 +84,7 @@ def student_page(student: str):
         "pages/student.html",
         **student_data,
         pageUrl=request.base_url,
+        ogImageUrl=make_url_absolute(student_data["photoUrl"]),
     )
 
 

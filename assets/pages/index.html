@@ -17,7 +17,6 @@
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="{{ pageUrl }}" />
-        <!-- Fill in page URL once the domain has been purchased! -->
         <meta name="theme-color" content="#4a4b54" />
 
         <!-- Favicons -->
@@ -42,23 +41,25 @@
 
         <!-- Open Graph -->
         <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="IATechEd Students" />
         <meta property="og:url" content="{{ pageUrl }}" />
-        <!-- Fill in page URL once the domain has been purchased! -->
         <meta property="og:title" content="IATechEd Students" />
         <meta
             property="og:description"
             content="Browse student portfolios from IATechEd."
         />
         <meta property="og:image" content="{{ ogImageUrl }}" />
+        <meta property="og:image:alt" content="IATechEd logo" />
 
         <!-- Twitter Card -->
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="IATechEd Students" />
         <meta
             name="twitter:description"
             content="Browse student portfolios from IATechEd."
         />
         <meta name="twitter:image" content="{{ ogImageUrl }}" />
+        <meta name="twitter:image:alt" content="IATechEd logo" />
 
         <!-- Structured data: this page lists multiple people, so each student
              is represented as an ItemList of Person entries -->
@@ -69,11 +70,14 @@
             "itemListElement": [
                 {% for student in students %}
                 {
-                    "@type": "Person",
+                    "@type": "ListItem",
                     "position": {{ loop.index }},
-                    "name": "{{ student.name }}",
-                    "url": "{{ student.pageUrl }}",
-                    "image": "{{ student.photoUrl }}"
+                    "item": {
+                        "@type": "Person",
+                        "name": {{ student.name | tojson }},
+                        "url": {{ student.pageUrl | tojson }},
+                        "image": {{ student.photoUrl | tojson }}
+                    }
                 }{% if not loop.last %},{% endif %}
                 {% endfor %}
             ]
@@ -97,7 +101,7 @@
              =================================================== -->
         <div id="studentsDiv">
             {% for student in students %}
-            <a class="studentCard" href="{{ pageUrl }}{{ student.pageUrl }}">
+            <a class="studentCard" href="{{ student.pageUrl }}">
                 <img src="{{ student.photoUrl }}" alt="{{ student.name }}" />
                 <h3>{{ student.name }}</h3>
                 {% if student.field %}
