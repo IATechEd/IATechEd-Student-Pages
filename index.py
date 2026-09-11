@@ -3,11 +3,19 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urljoin
 
+import git
 from flask import Flask, redirect, render_template, request, url_for
 
 BASE_DIRECTORY = Path(__file__).resolve().parent
 ASSETS_DIR = BASE_DIRECTORY / "assets"
 STUDENTS_DIR = ASSETS_DIR / "students"
+
+try:
+    repo = git.Repo(search_parent_directories=True)
+    GIT_HASH = repo.head.object.hexsha
+except (git.InvalidGitRepositoryError, git.NoSuchPathError) as e:
+    print(f"Failed to get Git hash: {e}")
+    GIT_HASH = "None"
 
 app = Flask(
     __name__,
@@ -69,6 +77,7 @@ def index():
             filename="images/favicon.svg",
             _external=True,
         ),
+        gitHash=GIT_HASH,
     )
 
 
