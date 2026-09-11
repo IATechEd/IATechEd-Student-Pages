@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Builder - IATechEd</title>
+        <script src="static/documents/builder.js" defer></script>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="static/documents/student.css"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="static/documents/builder.css"
+        />
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            sizes="any"
+            href="static/images/favicon.svg"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="static/images/favicon-32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="static/images/favicon-16.png"
+        />
+    </head>
+    <body>
+        <div id="bodyHolder">
+            <div id="intro" class="containerDiv">
+                <div class="photoEditor">
+                    <img id="profilePhoto" alt="Profile preview" hidden />
+                    <div id="photoPlaceholder">Add a profile photo</div>
+                    <input
+                        id="photoUrl"
+                        class="urlInput"
+                        type="url"
+                        aria-label="Profile photo URL"
+                        placeholder="Paste an image URL"
+                    />
+                </div>
+                <p id="pHey">Hey, I'm</p>
+                <h1>
+                    <input
+                        id="studentName"
+                        type="text"
+                        value="Your Name"
+                        aria-label="Name"
+                    />
+                </h1>
+                <sup>
+                    <span id="graduationLabel">Expected Grad </span>
+                    <span
+                        >20<input
+                            id="graduationYear"
+                            type="text"
+                            value="26"
+                            maxlength="2"
+                            inputmode="numeric"
+                            aria-label="Graduation year"
+                    /></span>
+                    <label class="checkboxLabel"
+                        ><input type="checkbox" id="graduated" />
+                        Graduated</label
+                    >
+                </sup>
+
+                <hr />
+                <div
+                    id="socialLinks"
+                    class="repeatable linksEditor"
+                    data-empty-text="Add a social or personal link"
+                ></div>
+                <button
+                    class="addButton"
+                    type="button"
+                    data-action="add-link"
+                    data-target="socialLinks"
+                >
+                    + Add link
+                </button>
+
+                <hr />
+                <h2>
+                    <input
+                        type="text"
+                        value="About Me"
+                        aria-label="About me heading"
+                    />
+                </h2>
+                <textarea
+                    id="pField"
+                    rows="3"
+                    aria-label="About me text"
+                    placeholder="Write a short introduction about yourself."
+                ></textarea>
+            </div>
+
+            <div id="aboutMe">
+                <div
+                    id="aboutMeContainer"
+                    class="repeatable"
+                    data-empty-text="Add an information box"
+                ></div>
+                <button
+                    class="addButton"
+                    type="button"
+                    data-action="add-info-box"
+                >
+                    + Add information box
+                </button>
+
+                <br />
+                <div id="projectsSection" class="containerDiv">
+                    <p class="sectionTitle">
+                        <input
+                            id="projectsText"
+                            type="text"
+                            value="A Couple Projects I'm working on:"
+                            aria-label="Projects introduction"
+                        />
+                    </p>
+                    <div
+                        id="projectsDiv"
+                        class="repeatable"
+                        data-empty-text="Add a project to show your work"
+                    ></div>
+                    <button
+                        class="addButton"
+                        type="button"
+                        data-action="add-project"
+                    >
+                        + Add project
+                    </button>
+                </div>
+            </div>
+
+            <br />
+            <hr />
+            <br />
+
+            <div id="contact">
+                <h3>
+                    <input
+                        id="contactMeText"
+                        type="text"
+                        value="Contact Me"
+                        aria-label="Contact heading"
+                    />
+                </h3>
+                <div
+                    id="contactLinks"
+                    class="repeatable linksEditor"
+                    data-empty-text="Add a way for people to contact you"
+                ></div>
+                <button
+                    class="addButton"
+                    type="button"
+                    data-action="add-link"
+                    data-target="contactLinks"
+                >
+                    + Add contact link
+                </button>
+            </div>
+
+            <div id="exportSection">
+                <div class="fileActions">
+                    <label id="loadButton" for="jsonFileInput"
+                        >Load student JSON</label
+                    >
+                    <input
+                        id="jsonFileInput"
+                        type="file"
+                        accept="application/json,.json"
+                    />
+                    <button
+                        id="exportButton"
+                        type="button"
+                        data-action="export-json"
+                    >
+                        Export student JSON
+                    </button>
+                </div>
+                <p id="fileStatus" role="status">
+                    Load or download a file matching the format used in
+                    <code>assets/students</code>.
+                </p>
+            </div>
+        </div>
+
+        <template id="linkTemplate">
+            <div class="editableLink editorGroup">
+                <a
+                    class="linkPreview"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Link name</a
+                >
+                <div class="editorControls">
+                    <input
+                        type="text"
+                        value="Link name"
+                        aria-label="Link label"
+                        data-bind="link-text"
+                    />
+                    <input
+                        class="urlInput"
+                        type="url"
+                        placeholder="https://example.com"
+                        aria-label="Link URL"
+                        data-bind="link-url"
+                    />
+                    <button
+                        class="removeButton"
+                        type="button"
+                        data-action="remove"
+                        aria-label="Remove link"
+                    >
+                        ×
+                    </button>
+                </div>
+            </div>
+        </template>
+
+        <template id="infoBoxTemplate">
+            <div class="containerDiv infoBox editorGroup">
+                <div class="boxHeader">
+                    <input
+                        class="boxTitle"
+                        type="text"
+                        value="Skills"
+                        aria-label="Information box title"
+                    />
+                    <select
+                        aria-label="Information box type"
+                        data-action="change-box-type"
+                    >
+                        <option value="skills">Skill pills</option>
+                        <option value="list">Bullet list</option>
+                    </select>
+                    <button
+                        class="removeButton"
+                        type="button"
+                        data-action="remove"
+                        aria-label="Remove information box"
+                    >
+                        ×
+                    </button>
+                </div>
+                <div class="boxItems repeatable"></div>
+                <button
+                    class="addButton small"
+                    type="button"
+                    data-action="add-box-item"
+                >
+                    + Add skill
+                </button>
+            </div>
+        </template>
+
+        <template id="skillTemplate">
+            <span
+                class="skill editableSkill editorGroup"
+                style="--color: #b8d8ff"
+            >
+                <input type="text" value="New skill" aria-label="Skill name" />
+                <input
+                    type="color"
+                    value="#b8d8ff"
+                    aria-label="Skill color"
+                    data-bind="skill-color"
+                />
+                <button
+                    class="removeButton inline"
+                    type="button"
+                    data-action="remove"
+                    aria-label="Remove skill"
+                >
+                    ×
+                </button>
+            </span>
+        </template>
+
+        <template id="listItemTemplate">
+            <div class="listItem editorGroup">
+                <span>•</span
+                ><input type="text" value="New item" aria-label="List item" />
+                <button
+                    class="removeButton inline"
+                    type="button"
+                    data-action="remove"
+                    aria-label="Remove list item"
+                >
+                    ×
+                </button>
+            </div>
+        </template>
+
+        <template id="projectTemplate">
+            <div class="projectBox editorGroup">
+                <button
+                    class="removeButton projectRemove"
+                    type="button"
+                    data-action="remove"
+                    aria-label="Remove project"
+                >
+                    ×
+                </button>
+                <div>
+                    <a
+                        class="projectLink"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        ><h3>
+                            <input
+                                type="text"
+                                value="Project name"
+                                aria-label="Project name"
+                            /></h3
+                    ></a>
+                    <input
+                        class="projectUrl urlInput"
+                        type="url"
+                        placeholder="Project URL"
+                        aria-label="Project URL"
+                        data-bind="project-url"
+                    />
+                    <textarea
+                        rows="2"
+                        placeholder="A short project description"
+                        aria-label="Project description"
+                    ></textarea>
+                </div>
+                <div>
+                    <sub>Skills:</sub>
+                    <div class="skillBox repeatable"></div>
+                    <button
+                        class="addButton small"
+                        type="button"
+                        data-action="add-project-skill"
+                    >
+                        + Add skill
+                    </button>
+                </div>
+            </div>
+        </template>
+    </body>
+</html>

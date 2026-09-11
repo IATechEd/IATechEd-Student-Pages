@@ -1,0 +1,364 @@
+input,
+textarea,
+select,
+button {
+    box-sizing: border-box;
+    font: inherit;
+    color: inherit;
+}
+
+input[type="text"],
+input[type="url"],
+textarea {
+    border: 1px dashed transparent;
+    border-radius: 4px;
+    background: transparent;
+    text-align: center;
+}
+
+input[type="text"]:hover,
+input[type="url"]:hover,
+textarea:hover,
+input[type="text"]:focus,
+input[type="url"]:focus,
+textarea:focus {
+    border-color: #8b8b8b;
+    background: rgba(255, 255, 255, 0.75);
+    outline: none;
+}
+
+textarea {
+    width: min(90vw, 620px);
+    padding: 0.4rem;
+    resize: vertical;
+}
+
+h1 input[type="text"] {
+    width: min(80vw, 600px);
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+h2 input,
+h3 input,
+.boxTitle {
+    font-weight: bold;
+}
+
+.sectionTitle input {
+    width: min(90vw, 620px);
+    font-weight: normal;
+}
+
+sup input[type="text"] {
+    width: 1.7em;
+    padding: 0;
+}
+
+.checkboxLabel {
+    margin-left: 0.5rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+
+.photoEditor {
+    display: flex;
+    width: min(90vw, 320px);
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+#photoPlaceholder[hidden],
+#profilePhoto[hidden] {
+    display: none;
+}
+
+#photoPlaceholder {
+    display: grid;
+    width: 200px;
+    aspect-ratio: 1;
+    place-items: center;
+    border: 2px dashed #999;
+    border-radius: 5px;
+    color: #666;
+    background: #e8e8e8;
+}
+
+#profilePhoto {
+    width: 200px;
+    object-fit: cover;
+}
+
+.urlInput {
+    width: min(100%, 280px);
+    padding: 0.25rem;
+    color: var(--sub-text-color);
+    font-size: 0.75rem;
+}
+
+.addButton,
+.removeButton {
+    border: 1px solid #8b8b8b;
+    border-radius: 999px;
+    background: #fff;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.addButton {
+    margin: 0.5rem;
+    padding: 0.4rem 0.7rem;
+    color: #444;
+    font-size: 0.8rem;
+}
+
+.addButton:hover,
+.removeButton:hover {
+    background: #222;
+    color: #fff;
+}
+
+.addButton.small {
+    margin: 0.35rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+}
+
+.removeButton {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex: 0 0 auto;
+    padding: 0;
+    color: #8b2525;
+}
+
+.removeButton.inline {
+    width: 1.1rem;
+    height: 1.1rem;
+    border: 0;
+    background: transparent;
+    font-size: 0.8rem;
+}
+
+.repeatable:empty::before {
+    content: attr(data-empty-text);
+    display: block;
+    padding: 0.5rem;
+    color: #777;
+    font-size: 0.8rem;
+    font-style: italic;
+    text-align: center;
+}
+
+.linksEditor {
+    display: flex;
+    max-width: 90vw;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.editableLink {
+    position: relative;
+    min-width: 130px;
+    padding-bottom: 0.25rem;
+    text-align: center;
+}
+
+.editorControls {
+    display: flex;
+    max-height: 0;
+    align-items: center;
+    gap: 0.25rem;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.editableLink:hover .editorControls,
+.editableLink:focus-within .editorControls {
+    max-height: 5rem;
+    opacity: 1;
+}
+
+.editorControls input {
+    width: 110px;
+    padding: 0.2rem;
+    font-size: 0.7rem;
+}
+
+#aboutMeContainer {
+    gap: 1rem;
+}
+
+.infoBox {
+    min-width: min(320px, 80vw);
+    padding: 0.75rem;
+    border: 1px dashed #aaa;
+    border-radius: 8px;
+}
+
+.boxHeader {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+}
+
+.boxHeader select {
+    max-width: 115px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 0.7rem;
+}
+
+.boxItems,
+.listItems {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.boxItems.skillsDiv {
+    flex-direction: row;
+}
+
+.editableSkill {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.skill,
+.skill:hover {
+    scale: 1;
+    transition: none;
+}
+
+.editableSkill input[type="text"] {
+    width: 75px;
+}
+
+.editableSkill input[type="color"] {
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+}
+
+.listItem {
+    display: flex;
+    align-items: center;
+}
+
+.listItem input {
+    width: 180px;
+    text-align: left;
+}
+
+.sectionTitle {
+    margin-bottom: 0;
+}
+
+.projectBox {
+    position: relative;
+    overflow: visible !important;
+}
+
+.projectRemove {
+    position: absolute;
+    z-index: 1;
+    top: -0.65rem;
+    right: -0.65rem;
+}
+
+.projectBox h3 input {
+    width: 100%;
+    font-weight: bold;
+}
+
+.projectBox textarea {
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+.projectBox .projectUrl {
+    width: 100%;
+}
+
+#contactLinks {
+    flex-direction: column;
+    align-items: center;
+}
+
+#exportSection {
+    display: flex;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid #bbb;
+    text-align: center;
+}
+
+.fileActions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+#jsonFileInput {
+    display: none;
+}
+
+#loadButton,
+#exportButton {
+    padding: 0.75rem 1.25rem;
+    border: 0;
+    border-radius: 6px;
+    background: #222;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#loadButton:hover,
+#loadButton:focus-visible,
+#exportButton:hover,
+#exportButton:focus-visible {
+    background: #4b4b4b;
+}
+
+#exportSection p {
+    margin: 0.5rem 0 0;
+    color: var(--sub-text-color);
+    font-size: 0.75rem;
+}
+
+@media (max-width: 600px) {
+    h1 input[type="text"] {
+        width: 90vw;
+        font-size: clamp(2rem, 11vw, 3rem);
+    }
+
+    .infoBox {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .boxHeader {
+        flex-wrap: wrap;
+    }
+
+    .editorControls {
+        max-height: 5rem;
+        opacity: 1;
+    }
+}

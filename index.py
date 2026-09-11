@@ -81,6 +81,11 @@ def index():
     )
 
 
+@app.route("/builder")
+def builder_page():
+    return render_template("pages/builder.html")
+
+
 @app.route("/<string:student>")
 def student_page(student: str):
     file_path = STUDENTS_DIR / f"{student}.json"

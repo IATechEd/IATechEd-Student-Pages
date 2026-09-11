@@ -15,3 +15,7 @@ Pages for students of IATechED
 5. Install dependencies - `pip3 install -r requirements.txt`
 
 6. Launch - `python3 index.py`
+
+## Notes
+
+Builder.* files are AI-made simply because nobody wanted to make a JSON builder tool themselves. Feel free to replace them.
