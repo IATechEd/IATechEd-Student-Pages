@@ -46,6 +46,24 @@ def load_student_summaries() -> list[dict[str, str]]:
     return summaries
 
 
+def load_student_photos() -> list[dict[str, str]]:
+    photos_directory = ASSETS_DIR / "static" / "images" / "students"
+    supported_extensions = {".gif", ".jpeg", ".jpg", ".png", ".webp"}
+
+    return [
+        {
+            "name": file_path.name,
+            "url": url_for(
+                "static",
+                filename=f"images/students/{file_path.name}",
+            ),
+        }
+        for file_path in sorted(photos_directory.iterdir())
+        if file_path.is_file()
+        and file_path.suffix.lower() in supported_extensions
+    ]
+
+
 def make_url_absolute(url: str) -> str:
     return urljoin(request.url_root, url)
 
@@ -83,7 +101,10 @@ def index():
 
 @app.route("/builder")
 def builder_page():
-    return render_template("pages/builder.html")
+    return render_template(
+        "pages/builder.html",
+        studentPhotos=load_student_photos(),
+    )
 
 
 @app.route("/<string:student>")

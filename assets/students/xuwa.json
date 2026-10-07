@@ -1,0 +1,45 @@
+{
+  "photoUrl": "/static/images/students/xuwa.jpg",
+  "name": "Xuwa",
+  "isGrad": false,
+  "gradYear": 2028,
+  "links": {
+    "Linkedin": "https://www.linkedin.com/in/xuwa-resendiz-solis-0b3849440?trk=contact-info"
+  },
+  "aboutMeText": "I am a high school student with a strong interest in the IT field I am currently working on my networking skills troubleshooting course work. I am eager to expand my knowledge.",
+  "aboutMeContainers": {
+    "Skills": {
+      "type": "skills",
+      "contents": {
+        "System Maintenance": "#969696",
+        "Basic Cybersecurity practices": "#969696",
+        "Learning Pytohn": "#969696",
+        "Technical Problem Solving": "#969696",
+        "Command Line": "#969696",
+        "Social": "#969696",
+        "Operating Systems": "#969696"
+      }
+    }
+  },
+  "projectsText": "A Couple Projects I'm working on:",
+  "projectsContainers": {
+    "CompTIA Networking Cert": {
+      "url": "https://www.comptia.org/en-us/",
+      "subtitle": "I am working on my Networking cert on CompTIA",
+      "skills": {
+        "Networking Skills": "#969696"
+      }
+    },
+    "a Project": {
+      "url": "",
+      "subtitle": "I'm not sure yet what project I want to make but I want to make an impact I am inspired from other people such as VLC and some other one I forgot the name of who did it, but they made something to check Iowa water quality",
+      "skills": {
+        "Problem Solving": "#969696"
+      }
+    }
+  },
+  "contactMeText": "Contact Me",
+  "contact": {
+    "Linkedin": "https://www.linkedin.com/in/xuwa-resendiz-solis-0b3849440?trk=contact-info"
+  }
+}

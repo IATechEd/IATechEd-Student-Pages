@@ -39,14 +39,22 @@
             <div id="intro" class="containerDiv">
                 <div class="photoEditor">
                     <img id="profilePhoto" alt="Profile preview" hidden />
-                    <div id="photoPlaceholder">Add a profile photo</div>
-                    <input
+                    <div id="photoPlaceholder">Choose a profile photo</div>
+                    <select
                         id="photoUrl"
-                        class="urlInput"
-                        type="url"
-                        aria-label="Profile photo URL"
-                        placeholder="Paste an image URL"
-                    />
+                        aria-label="Uploaded profile photo"
+                    >
+                        <option value="https://placehold.co/200x200">
+                            No photo selected
+                        </option>
+                        {% for photo in studentPhotos %}
+                        <option value="{{ photo.url }}">{{ photo.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <p class="photoHelp">
+                        Don’t see your photo? Reach out to Irene to have it
+                        uploaded.
+                    </p>
                 </div>
                 <p id="pHey">Hey, I'm</p>
                 <h1>

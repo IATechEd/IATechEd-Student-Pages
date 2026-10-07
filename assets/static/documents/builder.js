@@ -122,7 +122,14 @@ document.addEventListener("DOMContentLoaded", () => {
       throw new Error("The JSON file must contain a student object.");
     }
 
-    document.getElementById("photoUrl").value = data.photoUrl || "";
+    const photoSelect = document.getElementById("photoUrl");
+    const photoUrl = data.photoUrl || "";
+    const hasUploadedPhoto = [...photoSelect.options].some(
+      (option) => option.value === photoUrl,
+    );
+    photoSelect.value = hasUploadedPhoto
+      ? photoUrl
+      : "https://placehold.co/200x200";
     document.getElementById("studentName").value = data.name || "";
     document.getElementById("graduated").checked = Boolean(data.isGrad);
     document.getElementById("graduationYear").value = data.gradYear
@@ -152,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
       addLink("contactLinks", name, url),
     );
 
-    document.getElementById("photoUrl").dispatchEvent(new Event("input"));
+    photoSelect.dispatchEvent(new Event("change"));
     document.getElementById("graduated").dispatchEvent(new Event("change"));
   };
 
@@ -223,7 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
       : "Expected Grad ";
   });
 
-  document.getElementById("photoUrl").addEventListener("input", (event) => {
+  document.getElementById("photoUrl").addEventListener("change", (event) => {
     const image = document.getElementById("profilePhoto");
     const placeholder = document.getElementById("photoPlaceholder");
     const url = safeUrl(event.currentTarget.value);
@@ -314,4 +321,5 @@ document.addEventListener("DOMContentLoaded", () => {
   addInfoBox();
   addProject();
   addLink("contactLinks");
+  document.getElementById("photoUrl").dispatchEvent(new Event("change"));
 });

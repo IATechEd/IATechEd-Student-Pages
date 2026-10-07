@@ -69,6 +69,10 @@
     </head>
     <body>
         <div id="bodyHolder">
+            <a id="backLink" href="{{ url_for('index') }}"
+                >← Back to students</a
+            >
+
             <!-- ===================================================
              Intro section: photo, name, grad status, links, about-me blurb
              =================================================== -->
@@ -145,7 +149,9 @@
                                 <a href="{{ content.url }}" target="_blank"
                                     ><h3>{{ name }}</h3></a
                                 >
-                                <p>{{ content.subtitle }}</p>
+                                <p title="{{ content.subtitle }}">
+                                    {{ content.subtitle }}
+                                </p>
                             </div>
                             <div>
                                 <sub>Skills:</sub>

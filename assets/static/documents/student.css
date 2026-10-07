@@ -73,16 +73,19 @@ a {
     #pHey {
         color: var(--sub-text-color);
         font-size: 1.1rem;
-        margin-bottom: 0.2rem;
+        margin: 0.75rem 0 0.2rem;
     }
 
     h1 {
         font-size: 3rem;
-        margin: -10px 0;
+        line-height: 1.05;
+        margin: 0;
     }
 
     sup {
         color: var(--sub-text-color);
+        line-height: 1.2;
+        margin-top: 0.15rem;
         margin-bottom: 2rem;
     }
 
@@ -91,7 +94,10 @@ a {
     }
 
     #pField {
+        width: min(70ch, calc(100% - 2rem));
         margin: 0;
+        line-height: 1.5;
+        text-align: center;
     }
 
     margin-bottom: 0.5rem;
@@ -99,7 +105,7 @@ a {
 
 /* ===========================================================
    About Me section
-   Two-column grid of info blocks (lists or skill pills)
+   Wrapping row of info blocks (lists or skill pills)
    =========================================================== */
 #aboutMe {
     padding: 0 10vw;
@@ -108,8 +114,18 @@ a {
     align-items: center;
 
     #aboutMeContainer {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+
+        > div {
+            box-sizing: border-box;
+            width: min(100%, 450px);
+            flex: 1 1 320px;
+            max-width: 450px;
+        }
 
         div p {
             font-weight: bold;
@@ -130,6 +146,7 @@ a {
 #projectsDiv {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
     justify-content: center;
     gap: 1vw;
     padding: 2px;
@@ -145,8 +162,9 @@ a {
         border-radius: 5px;
 
         width: 215px;
-        aspect-ratio: 4/2.6;
-        overflow: hidden;
+        min-height: 140px;
+        height: auto;
+        overflow: visible;
         padding: 0.5rem 1rem;
 
         h3 {
@@ -155,8 +173,13 @@ a {
         }
 
         p {
+            display: -webkit-box;
+            overflow: hidden;
             margin-top: 0;
             font-size: 0.9rem;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 6;
+            line-clamp: 6;
         }
 
         sub {
@@ -199,9 +222,30 @@ a {
 }
 
 #bodyHolder {
+    position: relative;
     width: 100%;
     height: 100%;
     padding-top: 60px;
+}
+
+#backLink {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.4rem 0.7rem;
+    border: 1px solid #8b8b8b;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--url-color);
+    font-size: 0.8rem;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+        border-color: #222;
+        background: #222;
+        color: #fff;
+    }
 }
 
 /* ===========================================================
@@ -233,6 +277,16 @@ a {
         overflow-wrap: anywhere;
     }
 
+    #bodyHolder {
+        padding-top: 0;
+    }
+
+    #backLink {
+        position: static;
+        display: inline-block;
+        margin-bottom: 1.5rem;
+    }
+
     hr {
         width: min(75vw, 280px);
     }
@@ -248,7 +302,7 @@ a {
 
         h1 {
             max-width: 100%;
-            margin: -4px 0 0;
+            margin: 0;
             font-size: clamp(2rem, 11vw, 3rem);
             line-height: 1.05;
         }
@@ -271,8 +325,11 @@ a {
 
         #aboutMeContainer {
             width: 100%;
-            grid-template-columns: 1fr;
             gap: 0.75rem;
+
+            > div {
+                flex-basis: 100%;
+            }
         }
     }
 

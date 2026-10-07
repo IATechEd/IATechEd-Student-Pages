@@ -37,6 +37,7 @@ h1 input[type="text"] {
     width: min(80vw, 600px);
     font-size: 3rem;
     font-weight: bold;
+    line-height: 1.05;
 }
 
 h2 input,
@@ -67,6 +68,24 @@ sup input[type="text"] {
     flex-direction: column;
     align-items: center;
     gap: 0.35rem;
+}
+
+.photoEditor select {
+    width: min(100%, 280px);
+    padding: 0.25rem;
+    border: 1px solid #8b8b8b;
+    border-radius: 4px;
+    background: #fff;
+    color: var(--sub-text-color);
+    font-size: 0.75rem;
+}
+
+.photoHelp {
+    max-width: 280px;
+    margin: 0;
+    color: var(--sub-text-color);
+    font-size: 0.75rem;
+    text-align: center;
 }
 
 #photoPlaceholder[hidden],
@@ -239,7 +258,9 @@ sup input[type="text"] {
 }
 
 .editableSkill input[type="text"] {
-    width: 75px;
+    width: 110px;
+    min-width: 0;
+    padding: 0 0.2rem;
 }
 
 .editableSkill input[type="color"] {
