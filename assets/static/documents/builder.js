@@ -85,7 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const project = cloneTemplate("projectTemplate");
     project.querySelector("h3 input").value = name;
     project.querySelector(".projectUrl").value = content?.url || "";
-    project.querySelector(".projectLink").href = safeUrl(content?.url || "");
     project.querySelector("textarea").value = content?.subtitle || "";
     const skills = content?.skills || { "New skill": "#b8d8ff" };
     Object.entries(skills).forEach(([skill, colour]) =>
@@ -270,10 +269,6 @@ document.addEventListener("DOMContentLoaded", () => {
         safeUrl(input.value);
     } else if (input.matches('[data-bind="skill-color"]')) {
       input.closest(".skill").style.setProperty("--color", input.value);
-    } else if (input.matches('[data-bind="project-url"]')) {
-      input.closest(".projectBox").querySelector(".projectLink").href = safeUrl(
-        input.value,
-      );
     }
   });
 
@@ -292,6 +287,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.addEventListener("click", (event) => {
+    const linkPreview = event.target.closest(".linkPreview");
+    if (linkPreview?.getAttribute("href") === "#") {
+      event.preventDefault();
+      return;
+    }
+
     const button = event.target.closest("button[data-action]");
     if (!button) return;
 

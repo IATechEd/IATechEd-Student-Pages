@@ -22,7 +22,7 @@
   "projectsText": "A Couple Projects I'm working on:",
   "projectsContainers": {
     "Campus Flow": {
-      "url": "(Product design case study)",
+      "url": "",
       "subtitle": "Creating a fictional app for student management. Calendars, Applications, Scholarships, Meetings and Events, Assignments all in one place.",
       "skills": {
         "Marketing": "#b8d8ff",
@@ -47,7 +47,7 @@
   },
   "contactMeText": "Contact Me",
   "contact": {
-    "Phone": "515-344-8351",
-    "G-Mail": "marvonjones03@gmail.com"
+    "Phone": "tel:+15153448351",
+    "G-Mail": "mailto:marvonjones03@gmail.com"
   }
 }

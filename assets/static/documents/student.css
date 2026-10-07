@@ -182,6 +182,28 @@ a {
             line-clamp: 6;
         }
 
+        .projectDescription.expanded {
+            display: block;
+            overflow: visible;
+            -webkit-line-clamp: unset;
+            line-clamp: unset;
+        }
+
+        .descriptionToggle {
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: var(--url-color);
+            cursor: pointer;
+            font-size: 0.8rem;
+            text-decoration: underline;
+
+            &:hover,
+            &:focus-visible {
+                color: var(--url-hover-color);
+            }
+        }
+
         sub {
             font-size: 0.8rem;
             text-decoration: underline;
