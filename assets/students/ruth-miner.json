@@ -1,0 +1,26 @@
+{
+  "photoUrl": "/static/images/students/ruth.jpg",
+  "name": "Ruth Miner",
+  "isGrad": false,
+  "gradYear": 2028,
+  "links": {},
+  "aboutMeText": "I'm currently a junior in high school and after graduating I plan to go to college for computer science.",
+  "aboutMeContainers": {
+    "Skills": {
+      "type": "list",
+      "contents": ["Active Directory Objects", "Group Policy", "Audit Policy"]
+    }
+  },
+  "projectsText": "",
+  "projectsContainers": {
+    "Project name": {
+      "url": "",
+      "subtitle": "Completed course and received certificate in identify managements, software security, application defense, and audit and security assessment.",
+      "skills": {
+        "New skill": "#b8d8ff"
+      }
+    }
+  },
+  "contactMeText": "Contact Me",
+  "contact": {}
+}

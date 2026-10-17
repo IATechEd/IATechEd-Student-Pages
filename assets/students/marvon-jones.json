@@ -1,53 +1,74 @@
 {
-  "photoUrl": "https://placehold.co/200x200",
-  "name": "MarVon Jones",
+  "photoUrl": "/static/images/students/marvon.jpg",
+  "name": "MarVon A Jones",
   "isGrad": false,
   "gradYear": 2027,
   "links": {
-    "Linkedin": "https://www.linkedin.com/in/marvon-jones-b62144315/?isSelfProfile=true"
+    "LinkedIN": "www.linkedin.com/in/marvon-jones-b62144315",
+    "BeHance": "https://www.behance.net/marvonjones1"
   },
   "aboutMeText": "I am a motivated and creative student with a strong interest in product design, technology, and problem-solving. I enjoy exploring new ideas, learning through hands-on experiences, and finding thoughtful solutions to challenges. I am always looking for opportunities to grow my skills, contribute to meaningful projects, and turn creative ideas into practical results.",
   "aboutMeContainers": {
+    "Honors": {
+      "type": "list",
+      "contents": [
+        "DMACC President's Award for High Scholastic Achievement",
+        "Certificate of Impact (Iowa Juneteenth Observance)",
+        "DMACC Executive Academic Dean's Award"
+      ]
+    },
+    "Certifications": {
+      "type": "list",
+      "contents": [
+        "TestOut Security Pro Certification",
+        "TestOut Network Pro (In progress)",
+        "ServSafe Certification (Food Protection Manager)"
+      ]
+    },
+    "Programs": {
+      "type": "list",
+      "contents": [
+        "Pi515 (pursuit of innovation)",
+        "Investing In My Future Inc",
+        "Upward Bound (Central Collage)",
+        "Science Bound (Iowa state Universety)",
+        "ACE Mentor"
+      ]
+    },
     "Skills": {
-      "type": "skills",
-      "contents": {
-        "Technology": "#0073ff",
-        "Creativity": "#00bfff",
-        "Product design": "#00fffb",
-        "Visual design": "#00ffaa",
-        "Critical thinking": "#00ff4c"
-      }
+      "type": "list",
+      "contents": [
+        "UI/UX Design",
+        "Graphic Design",
+        "Information Technology",
+        "Cybersecurity",
+        "Teamwork & Collaboration"
+      ]
     }
   },
   "projectsText": "A Couple Projects I'm working on:",
   "projectsContainers": {
     "Campus Flow": {
-      "url": "",
-      "subtitle": "Creating a fictional app for student management. Calendars, Applications, Scholarships, Meetings and Events, Assignments all in one place.",
+      "subtitle": "Student Productivity Website (Portfolio Piece)",
       "skills": {
-        "Marketing": "#b8d8ff",
-        "UI/UX design": "#b8d8ff",
-        "Visual Design": "#b8d8ff",
-        "Human computer interaction": "#b8d8ff",
-        "Visual design": "#b8d8ff",
-        "Animation": "#b8d8ff"
+        "UI/UX Design": "#b8d8ff",
+        "Creative problem solving": "#b8d8ff",
+        "Organization": "#b8d8ff"
       }
     },
-    "CompTia Networking+ Certification": {
-      "url": "https://platform.comptia.org/",
-      "subtitle": "With CompTIA Network+, you can unlock a diverse range of career paths, from network administration and support to cybersecurity, creating opportunities for advancement and specialization in the rapidly evolving IT industry. CompTIA Network+ is a global IT certification validating candidates have the core skills necessary to establish, maintain, troubleshoot, and secure networks in any environment, regardless of technology and platform.",
+    "Re-imagine Series": {
+      "subtitle": "Taking popular products and redesigning them based on consumer fanbase, market data, etc.",
       "skills": {
-        "Networking": "#b8d8ff",
-        "Hardware": "#b8d8ff",
-        "Cybersecurity": "#b8d8ff",
-        "Routers and Switches": "#b8d8ff",
-        "Ind. Studying": "#b8d8ff"
+        "Trend Analysis": "#b8d8ff",
+        "Visual Design": "#b8d8ff",
+        "Attention to Detail": "#b8d8ff"
       }
     }
   },
   "contactMeText": "Contact Me",
   "contact": {
-    "Phone": "tel:+15153448351",
-    "G-Mail": "mailto:marvonjones03@gmail.com"
+    "Phone": "515-344-8351",
+    "E-mail": "ui.ux.by.marvon@gmail.com",
+    "Personal Inquiries": "marvonjones03@gmail.com"
   }
 }
