@@ -1,0 +1,45 @@
+{
+  "photoUrl": "https://placehold.co/200x200",
+  "name": "Langston hughes",
+  "isGrad": false,
+  "gradYear": 2028,
+  "links": {
+    "LinkedIn": "https://www.linkedin.com/in/langston-hughes-jr-800b5a443/"
+  },
+  "aboutMeText": "I've always been a computer kid, and I've enjoyed solving problems and figuring out how technology works for as long as I can remember. My main interests include cybersecurity, Python programming, Linux, IT support, ethical hacking, and computer optimization.\n\nI've developed a basic understanding of Python, explored Linux distributions and system customization, and learned more about how computers and operating systems work. I'm always interested in learning new things, experimenting with technology, and improving my technical skills.\n\nAlongside my technical interests, I bring strong communication and interpersonal skills. I enjoy working with people, communicating ideas, and collaborating to solve problems. I'm currently looking for opportunities to gain hands-on experience in IT, continue learning, and build a foundation for a future in cybersecurity and technology.",
+  "aboutMeContainers": {
+    "Skills": {
+      "type": "list",
+      "contents": [
+        "🖥️ Operating Systems & IT",
+        "🔐 Cybersecurity",
+        "🐍 Programming",
+        "🤝 Professional Skills"
+      ]
+    }
+  },
+  "projectsText": "Projects.",
+  "projectsContainers": {
+    "Linux Configuration": {
+      "url": "",
+      "subtitle": "Customized and optimized a Linux desktop environment using CachyOS and Niri, gaining hands-on experience with Linux configuration, system customization, and performance tuning.",
+      "skills": {
+        "Linux Configuration": "#b8d8ff",
+        "Operating System Installation": "#b8d8ff",
+        "Desktop Customization": "#b8d8ff",
+        "Troubleshooting": "#b8d8ff",
+        "Problem-Solving": "#b8d8ff",
+        "Performance Tuning": "#b8d8ff"
+      }
+    },
+    "Project (wip)": {
+      "url": "",
+      "subtitle": "Currently developing my own Linux OS, exploring system customization, accessibility, and operating system design. The goal is to create a more user-friendly computing experience.",
+      "skills": {
+        "New skill": "#b8d8ff"
+      }
+    }
+  },
+  "contactMeText": "Contact Me",
+  "contact": {}
+}
