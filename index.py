@@ -6,6 +6,7 @@ from urllib.parse import urljoin
 import git
 from flask import Flask, redirect, render_template, request, url_for
 
+PORT = 5000
 BASE_DIRECTORY = Path(__file__).resolve().parent
 ASSETS_DIR = BASE_DIRECTORY / "assets"
 STUDENTS_DIR = ASSETS_DIR / "students"
@@ -103,5 +104,4 @@ def student_page(student: str):
 
 
 if __name__ == "__main__":
-    # app.run(debug=True)
-    app.run(host="0.0.0.0")
+    app.run(debug=True, port=PORT, host="0.0.0.0")
