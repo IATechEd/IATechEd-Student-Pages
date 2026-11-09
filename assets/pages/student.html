@@ -69,6 +69,10 @@
     </head>
     <body>
         <div id="bodyHolder">
+            <a id="backLink" href="{{ url_for('index') }}"
+                >← Back to students</a
+            >
+
             <!-- ===================================================
              Intro section: photo, name, grad status, links, about-me blurb
              =================================================== -->
@@ -142,10 +146,27 @@
                         {% for name, content in projectsContainers.items() %}
                         <div class="projectBox">
                             <div>
-                                <a href="{{ content.url }}" target="_blank"
+                                {% if content.url %}
+                                <a
+                                    href="{{ content.url }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     ><h3>{{ name }}</h3></a
                                 >
-                                <p>{{ content.subtitle }}</p>
+                                {% else %}
+                                <h3>{{ name }}</h3>
+                                {% endif %}
+                                <p class="projectDescription">
+                                    {{ content.subtitle }}
+                                </p>
+                                <button
+                                    class="descriptionToggle"
+                                    type="button"
+                                    aria-expanded="false"
+                                    hidden
+                                >
+                                    Show more
+                                </button>
                             </div>
                             <div>
                                 <sub>Skills:</sub>
