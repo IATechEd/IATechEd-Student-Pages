@@ -1,0 +1,33 @@
+{
+  "photoUrl": "https://www.linkedin.com/in/joseph-clark-399b4b40b/?isSelfProfile=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BdhRilkJXTzqQiXTfvRFudQ%3D%3D",
+  "name": "Joseph Clark",
+  "isGrad": false,
+  "gradYear": 2027,
+  "links": {
+    "LinkedIn": "www.linkedin.com/in/joseph-clark-399b4b40b"
+  },
+  "aboutMeText": "",
+  "aboutMeContainers": {
+    "Skills": {
+      "type": "skills",
+      "contents": {
+        "CyberSecurity": "#b8d8ff",
+        "Networking": "#b8d8ff",
+        "Physical Security": "#b8d8ff",
+        "Data Security": "#b8d8ff"
+      }
+    }
+  },
+  "projectsText": "A Projects I'm working on:",
+  "projectsContainers": {
+    "Project": {
+      "url": "",
+      "subtitle": "I am working on a home server where I can practice hosting, offence and defense",
+      "skills": {
+        "Server Management": "#b8d8ff"
+      }
+    }
+  },
+  "contactMeText": "Contact Me",
+  "contact": {}
+}
